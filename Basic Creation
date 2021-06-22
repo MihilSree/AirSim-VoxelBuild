@@ -1,0 +1,12 @@
+import airsim
+import os
+from time import sleep
+client = airsim.MultirotorClient()
+client.confirmConnection()
+center = airsim.Vector3r(0,0,0)
+output_path = os.path.join(os.getcwd(), "map.binvox")
+client.simCreateVoxelGrid(center, 100, 100, 100, 0.5, output_path)
+
+#Below is Run In Command Line
+#os.system('cmd /k  "cd C:\\Users\\mihil\\Desktop\\Vox"')
+#os.system('cmd /k "viewvox C:\\Users\\mihil\\PycharmProjects\\PersonalProjects\\venv\\map.binvox"')
